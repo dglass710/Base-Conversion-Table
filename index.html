@@ -12,6 +12,8 @@
         table {
             border-collapse: collapse;
             width: 100%;
+            overflow-x: auto;
+            display: block;
         }
         th, td {
             border: 1px solid #000;
@@ -58,7 +60,7 @@
         Base 8 (octal) and base 16 (hexadecimal) are also commonly used in computing. Octal uses digits from 0 to 7 and is capable of representing three binary digits (bits) in a more compact form. Hexadecimal, which uses digits from 0 to 9 and letters A to F, can represent four binary digits. Because there are eight bits in a byte, a byte can be represented by just two hexadecimal digits, as opposed to eight binary digits. This increases readability and reduces the likelihood of errors due to the more concise and varied character set.
     </p>
     <p>
-        The table below displays the conversions of numbers from base 10 to bases 1 through 16. The "Value" column is in base 10, while the other columns show the equivalent values in different bases.
+        The table below displays the conversions of numbers from base 10 to bases 1 through 36. The "Value" column is in base 10, while the other columns show the equivalent values in different bases.
     </p>
     <label for="minValue">Min Value: </label>
     <input type="text" id="minValue" value="0" oninput="validateInput(this)">
@@ -131,6 +133,86 @@
             <input type="checkbox" id="base16" value="16" checked>
             <label for="base16">Base 16</label>
         </div>
+        <div>
+            <input type="checkbox" id="base17" value="17">
+            <label for="base17">Base 17</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base18" value="18">
+            <label for="base18">Base 18</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base19" value="19">
+            <label for="base19">Base 19</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base20" value="20">
+            <label for="base20">Base 20</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base21" value="21">
+            <label for="base21">Base 21</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base22" value="22">
+            <label for="base22">Base 22</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base23" value="23">
+            <label for="base23">Base 23</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base24" value="24">
+            <label for="base24">Base 24</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base25" value="25">
+            <label for="base25">Base 25</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base26" value="26">
+            <label for="base26">Base 26</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base27" value="27">
+            <label for="base27">Base 27</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base28" value="28">
+            <label for="base28">Base 28</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base29" value="29">
+            <label for="base29">Base 29</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base30" value="30">
+            <label for="base30">Base 30</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base31" value="31">
+            <label for="base31">Base 31</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base32" value="32">
+            <label for="base32">Base 32</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base33" value="33">
+            <label for="base33">Base 33</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base34" value="34">
+            <label for="base34">Base 34</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base35" value="35">
+            <label for="base35">Base 35</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base36" value="36">
+            <label for="base36">Base 36</label>
+        </div>
     </div>
     <div id="tableContainer"></div>
 
@@ -140,8 +222,8 @@
         }
 
         function toBase(n, b) {
+            const digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             if (b === 1) return '0'.repeat(n + 1);
-            const digits = "0123456789ABCDEF";
             let res = "";
             while (n > 0) {
                 res = digits[n % b] + res;
