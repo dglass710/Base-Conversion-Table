@@ -36,6 +36,14 @@
         .color4 {
             background-color: #FFD1DC;
         }
+        .checkbox-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .checkbox-container div {
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -57,6 +65,72 @@
     <label for="maxValue">Max Value: </label>
     <input type="text" id="maxValue" value="16" oninput="validateInput(this)">
     <button onclick="generateTable()">Generate Table</button>
+    <div class="checkbox-container">
+        <div>
+            <input type="checkbox" id="base1" value="1" checked>
+            <label for="base1">Base 1</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base2" value="2" checked>
+            <label for="base2">Base 2</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base3" value="3" checked>
+            <label for="base3">Base 3</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base4" value="4" checked>
+            <label for="base4">Base 4</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base5" value="5" checked>
+            <label for="base5">Base 5</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base6" value="6" checked>
+            <label for="base6">Base 6</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base7" value="7" checked>
+            <label for="base7">Base 7</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base8" value="8" checked>
+            <label for="base8">Base 8</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base9" value="9" checked>
+            <label for="base9">Base 9</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base10" value="10" checked>
+            <label for="base10">Base 10</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base11" value="11" checked>
+            <label for="base11">Base 11</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base12" value="12" checked>
+            <label for="base12">Base 12</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base13" value="13" checked>
+            <label for="base13">Base 13</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base14" value="14" checked>
+            <label for="base14">Base 14</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base15" value="15" checked>
+            <label for="base15">Base 15</label>
+        </div>
+        <div>
+            <input type="checkbox" id="base16" value="16" checked>
+            <label for="base16">Base 16</label>
+        </div>
+    </div>
     <div id="tableContainer"></div>
 
     <script>
@@ -78,16 +152,16 @@
         function generateTable() {
             const minValue = parseInt(document.getElementById('minValue').value, 10);
             const maxValue = parseInt(document.getElementById('maxValue').value, 10);
-            const bases = Array.from({ length: 16 }, (_, i) => i + 1);
+            const selectedBases = Array.from(document.querySelectorAll('.checkbox-container input:checked')).map(input => parseInt(input.value, 10));
             const values = Array.from({ length: maxValue - minValue + 1 }, (_, i) => i + minValue);
             const tableContainer = document.getElementById('tableContainer');
 
             let html = '<table>';
-            html += '<tr><th>Value</th>' + bases.map(base => `<th>Base ${base}</th>`).join('') + '</tr>';
+            html += '<tr><th>Value</th>' + selectedBases.map(base => `<th>Base ${base}</th>`).join('') + '</tr>';
             values.forEach(value => {
                 html += '<tr>';
                 html += `<td class="value-column">${value}</td>`;
-                bases.forEach((base, index) => {
+                selectedBases.forEach((base, index) => {
                     const colorClass = `color${(index % 4) + 1}`;
                     html += `<td class="${colorClass}">${toBase(value, base)}</td>`;
                 });
