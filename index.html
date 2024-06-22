@@ -65,7 +65,7 @@
         }
 
         function toBase(n, b) {
-            if (b === 1) return n.toString();
+            if (b === 1) return '0'.repeat(n + 1);
             const digits = "0123456789ABCDEF";
             let res = "";
             while (n > 0) {
